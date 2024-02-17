@@ -53,7 +53,7 @@ start, end = 0, len(files)
 for i in files:
     mic, ctf, angpix = i
     os.system(f"if test -f \'{mic[:-3]}png\'; then continue; else `which relion_image_handler` --i {mic} --o {mic[:-3]}png --angpix {angpix} --rescale_angpix {angpix*5} --sigma_contrast 6 --lowpass 10; fi")
-    os.system(f"if test -f \'{ctf[:-7]}png\"; then continue; else `which relion_image_handler` --i {ctf} --o {ctf[:-7]}png; fi")
+    os.system(f"if test -f \'{ctf[:-7]}png\'; then continue; else `which relion_image_handler` --i {ctf} --o {ctf[:-7]}png; fi")
     start += 1
     print(f"Finished {start}/{end}")
 
