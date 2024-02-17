@@ -35,7 +35,7 @@ print('parsing STAR file...')
 try:
     starf_df_optics = starfile.read(inargs)['optics']
     starf_df_mics = starfile.read(inargs)['micrographs']
-    apix = float(starf_df_optics['rlnMicrographPixelSize'])
+    apix = starf_df_optics['rlnMicrographPixelSize'].astype(float)
     micrographs = starf_df_mics
     motion = micrographs['rlnMicrographName']
     ctf = micrographs['rlnCtfImage']
